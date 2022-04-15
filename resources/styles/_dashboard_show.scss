@@ -1,0 +1,22 @@
+.dashboard-content-container {
+    max-width: 600px;
+    background-color: var(--backgroundopacitydark);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-inline: auto;
+}
+
+.dashboard-image-container {
+    width: 100%;
+}
+
+.dashboard-info-container {
+    padding: 15px;
+    p {
+        font-weight: 300;
+    }
+    .tagline {
+        font-weight: 300;
+        font-style: italic;
+    }
+}

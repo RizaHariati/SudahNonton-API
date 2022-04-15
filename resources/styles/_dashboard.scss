@@ -1,0 +1,131 @@
+.dashboard-container {
+    width: 100vw;
+    min-height: 100vh;
+    z-index: 1;
+    background-color: var(--backgroundopacitydark);
+    padding-block: 70px;
+}
+
+.dashboard {
+    margin: auto;
+    width: 90%;
+    padding-inline: 10px;
+}
+
+.dashboard-title {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.dashboard-slides-container {
+    margin: auto;
+    margin-block: 30px;
+    width: 100%;
+    padding-inline: 20px;
+    @include flex(row, space-evenly);
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+.dashboard-img-container {
+    position: relative;
+    width: 180px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+
+    .title {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        z-index: 5;
+        font-variant: small-caps;
+        width: 85%;
+        height: 30px;
+        background-color: var(--backgroundopacitymid);
+        padding: 5px 10px 0px 10px;
+        transition: var(--transition);
+        h6 {
+            font-size: 12px;
+            line-height: 12spx;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.5);
+        z-index: 7;
+        .title {
+            bottom: 0;
+            width: 100%;
+            z-index: 8;
+            height: fit-content;
+            h6 {
+                font-size: 12px;
+            }
+            .info {
+                display: flex;
+            }
+        }
+    }
+}
+
+.small-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dashboard-selected-movie {
+    width: 70%;
+    margin-inline: auto;
+}
+
+.form-select {
+    width: 100%;
+    cursor: pointer;
+}
+
+.movie-backdrop {
+    width: 100%;
+    max-height: 350px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.dashboard-trix {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--light);
+    padding-inline: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.form-floating,
+.form-select {
+    width: 100%;
+    cursor: pointer;
+
+    label {
+        font-size: 12px;
+    }
+    option {
+        font-size: 14px;
+    }
+}
+
+.form-control {
+    font-size: 14px;
+}
+@media screen and(max-width:600px) {
+    .dashboard-selected-movie {
+        width: 100%;
+        margin-inline: auto;
+    }
+}
