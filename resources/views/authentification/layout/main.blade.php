@@ -37,7 +37,7 @@
   <link href={{ asset('styles/bootstrapstyle.css') }} rel="stylesheet">
 </head>
 
-<body class="text-center bg-dark p-4">
+<body class="text-center bg-dark">
   <main class="form-signin bg-white rounded-2">
     @yield('container')
     <a href="/" class="text-info">return to main page</a>
