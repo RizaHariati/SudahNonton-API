@@ -31,14 +31,13 @@
         font-size: 3.5rem;
       }
     }
-
   </style>
   <!-- Custom styles for this template -->
   <link href={{ asset('styles/signin.css') }} rel="stylesheet">
   <link href={{ asset('styles/bootstrapstyle.css') }} rel="stylesheet">
 </head>
 
-<body class="text-center bg-dark">
+<body class="text-center bg-dark p-4">
   <main class="form-signin bg-white rounded-2">
     @yield('container')
     <a href="/" class="text-info">return to main page</a>

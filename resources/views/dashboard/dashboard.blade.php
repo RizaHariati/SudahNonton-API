@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-  <div class="main-container" style="height:calc(100vh - 60px)">
+  <div class="dashboard-main-container">
     <section class="main-img-container">
 
       @if (session()->has('success'))
@@ -28,14 +28,14 @@
     </section>
 
     <div class="banner-container">
-      <div class="banner" style="letter-spacing: 1px">
+      <div class="banner">
         <h2>Welcome to dashboard</h2>
         @guest
-          <h5 class=" text-danger">Please login to edit movie and tv show database</h5>
+          <h5 class=" dashboard-text text-danger">Please login to edit movie and tv show database</h5>
         @endguest
-        <h5 style="font-weight: 300;letter-spacing: 1px">Number of movies I have watched so far : {{ $movies->count() }}
+        <h5 class="dashboard-text">Number of movies I have watched so far : {{ $movies->count() }}
         </h5>
-        <h5 style="font-weight: 300;letter-spacing: 1px">Number of tv shows I have watched so far :
+        <h5 class="dashboard-text">Number of tv shows I have watched so far :
           {{ $tvshows->count() }} </h5>
       </div>
     </div>
