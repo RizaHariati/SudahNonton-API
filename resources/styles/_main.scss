@@ -113,7 +113,7 @@
     max-width: 500px;
 }
 
-@media screen and(max-width:500px) {
+@media screen and(max-width:600px) {
     .main-img-container {
         height: 75vh;
     }
@@ -148,7 +148,7 @@
         }
         .banner-excerpt {
             display: block;
-            font-size: 10px;
+            font-size: 12px;
         }
         .group-btn {
             .btn {

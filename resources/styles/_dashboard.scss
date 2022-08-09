@@ -116,7 +116,7 @@
         font-size: 12px;
     }
     option {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
@@ -182,5 +182,13 @@
     .btn-custom {
         width: 24px;
         height: 24px;
+    }
+    .form-select {
+        label {
+            font-size: 8px;
+        }
+        option {
+            font-size: 10px;
+        }
     }
 }

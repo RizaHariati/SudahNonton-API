@@ -32,6 +32,7 @@ p {
   --light: #fff;
   --background: #090d0f;
   --backgroundopacitydark: #0f1518f3;
+  --backgroundopacitymid: #0f1518df;
   --backgroundopacity: #0f14186e;
   --primaryopacity: #97b9cf2f;
   --transition: all 0.3s ease-in;
@@ -426,7 +427,7 @@ p {
   max-width: 500px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .main-img-container {
     height: 75vh;
   }
@@ -460,7 +461,7 @@ p {
   }
   .banner .banner-excerpt {
     display: block;
-    font-size: 10px;
+    font-size: 12px;
   }
   .banner .group-btn .btn {
     font-size: 10px;
@@ -963,7 +964,7 @@ p {
 }
 .form-floating option,
 .form-select option {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .form-control {
@@ -1033,6 +1034,13 @@ p {
   .btn-custom {
     width: 24px;
     height: 24px;
+  }
+
+  .form-select label {
+    font-size: 8px;
+  }
+  .form-select option {
+    font-size: 10px;
   }
 }
 .dashboard-content-container {

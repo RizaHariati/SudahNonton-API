@@ -8,10 +8,11 @@
       <div class="dashboard-title">
         <h4>Tv Shows List</h4>
         @auth
-          <a href="/dashboard/tvshows/create" class="btn btn-primary"> Add Tv Show &emsp;<i class="bi bi-plus-circle-fill"></i>
+          <a href="/dashboard/tvshows/create" class="btn btn-primary btn-sm"> Add Tv Show &emsp;<i
+              class="bi bi-plus-circle-fill"></i>
           </a>
         @else
-          <a href="/dashboard/tvshows/create?login=false" class="btn btn-primary"> Add Tv Show &emsp;<i
+          <a href="/dashboard/tvshows/create?login=false" class="btn btn-primary btn-sm "> Add Tv Show &emsp;<i
               class="bi bi-plus-circle-fill"></i>
           </a>
         @endauth

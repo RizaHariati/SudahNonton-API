@@ -29,6 +29,7 @@ p {
     --light: #fff;
     --background: #090d0f;
     --backgroundopacitydark: #0f1518f3;
+    --backgroundopacitymid: #0f1518df;
     --backgroundopacity: #0f14186e;
     --primaryopacity: #97b9cf2f;
     --transition: all 0.3s ease-in;
@@ -39,4 +40,10 @@ p {
     align-items: center;
     justify-content: $justify;
     flex-direction: $direction;
+}
+
+@media screen and(max-width:600px) {
+    // .btn-sm {
+    //     scale: 0.7;
+    // }
 }
