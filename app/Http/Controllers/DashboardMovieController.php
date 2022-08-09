@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+
 
 class DashboardMovieController extends Controller
 {
 
     public function index(Request $request)
     {
-        if ($request->has('login')) {
-            return redirect('dashboard/home')->with('error', 'you are not authorized to edit movie');
-        }
+
         $movies = Movie::latest()->paginate(50);
         $allmovies = true;
 
@@ -39,8 +38,11 @@ class DashboardMovieController extends Controller
     }
 
 
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->has('login')) {
+            return redirect('dashboard/home')->with('error', 'you are not authorized to edit movie');
+        }
         return view('dashboard.movies.create');
     }
 
@@ -69,7 +71,9 @@ class DashboardMovieController extends Controller
 
     public function edit(Movie $movie)
     {
-
+        if (!Auth::user()) {
+            return redirect('/auth/login')->with('error', 'you are not authorized to edits movie');
+        }
         return view('dashboard.movies.edit', [
             'edit' => $movie,
             'genres' => Genre::all()
@@ -90,6 +94,9 @@ class DashboardMovieController extends Controller
 
     public function destroy(Movie $movie)
     {
+        if (!Auth::user()) {
+            return redirect('/auth/login')->with('error', 'you are not authorized to delete movie');
+        }
         Movie::destroy($movie->id);
         return redirect('/dashboard/movies')->with('success', 'Movie successfully deleted');
     }

@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-  <div class="main-container">
+  <div class="main-container" style="height:calc(100vh - 60px)">
     <section class="main-img-container">
 
       @if (session()->has('success'))

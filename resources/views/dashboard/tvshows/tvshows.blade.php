@@ -7,9 +7,15 @@
 
       <div class="dashboard-title">
         <h4>Tv Shows List</h4>
-        <a href="/dashboard/tvshows/create" class="btn btn-primary"> Add Tv Show &emsp;<i
-            class="bi bi-plus-circle-fill"></i>
-        </a>
+        @auth
+          <a href="/dashboard/tvshows/create" class="btn btn-primary"> Add Tv Show &emsp;<i class="bi bi-plus-circle-fill"></i>
+          </a>
+        @else
+          <a href="/dashboard/tvshows/create?login=false" class="btn btn-primary"> Add Tv Show &emsp;<i
+              class="bi bi-plus-circle-fill"></i>
+          </a>
+        @endauth
+
       </div>
 
       <form action="/dashboard/tvshows">
@@ -26,17 +32,17 @@
           <h3>Tv show is not found</h3>
           <a href="/dashboard/tvshows" class="btn btn-sm btn-outline-primary"> Back</a>
         </div>
-      @else<div class="table-responsive rounded-2 ">
+      @else<div class="table-responsive rounded-2 " style="max-width: 900px; margin-inline:auto">
           <table class="table table-sm table-dark table-striped table-hover align-left "
             style="font-weight: 300;word-wrap: break-word;">
             <thead>
-              <tr>
-                <th class="col-sm-1" scope="col">No.</th>
-                <th class="col-lg-7 col-md-5 col-4" scope="col" style="min-width: 250px">Title</th>
-                <th class="col-2" scope="col" style="word-wrap: break-word;">
-                  <form action="/dashboard/tvshows" id="myform" style="padding-right: 10px">
+              <tr class="table-body-custom">
+                <th class="col-md-12 d-none d-md-inline-block shadow-md " scope="col">No.</th>
+                <th class="col-6 " scope="col">Title</th>
+                <th class="col-3" scope="col">
+                  <form action="/dashboard/tvshows" id="myform">
                     @csrf
-                    <select class="form-select" name="tvGenre" onchange="submitForm()"
+                    <select class="form-select " name="tvGenre" onchange="submitForm()"
                       aria-label="Default select example" value={{ old('tvGenre') }} aria-placeholder="genres"
                       style=" background-color: var(--backgroundopacity);color:var(--light)">
                       <div class="options-container">
@@ -56,29 +62,38 @@
                     </script>
                   </form>
                 </th>
-                <th class="col-lg-2 col-sm-3 col-4" scope="col" style="word-wrap: break-word;">
+                <th class="col-3 col-md-2" scope="col">
                   Actions</th>
               </tr>
             </thead>
-            <tbody style="font-size: 12px">
+
+            <tbody>
 
               @foreach ($tvshows as $tvshow)
-                <tr>
-                  <th class="col-lg-1" style="line-height: 32px" scope="row">
+                <tr class="table-body-custom">
+                  <th class="col-md-12 d-none d-md-inline-block shadow-md " scope="row">
                     {{ $loop->iteration }}
                   </th>
-                  <td style="line-height: 32px">{{ $tvshow->name }}</td>
-                  <td style="line-height: 32px">{{ $tvshow->genres }}</td>
-                  <td>
-                    <a href="/dashboard/tvshows/{{ $tvshow->id }}" class="btn btn-sm btn-success"
-                      style="font-size: 15px"><i class="bi bi-eye-fill"></i></a>
-                    <a href="/dashboard/tvshows/{{ $tvshow->id }}/edit" class="btn btn-sm btn-warning"><i
+                  <td class="col-6 col-md-7 text-wrap" style="line-height: 32px">{{ $tvshow->name }}</td>
+                  <td class="col-3" style=" line-height: 32px">{{ $tvshow->genres }}</td>
+                  <td class="btn-custom-container col-3 col-md-2">
+
+                    <a href="/dashboard/tvshows/{{ $tvshow->id }}" class="btn-custom bg-success"><i
+                        class="bi bi-eye-fill"></i></a>
+                    <a href="/dashboard/tvshows/{{ $tvshow->id }}/edit" class="btn-custom bg-warning  "><i
                         class="bi bi-pencil-square"></i></a>
-                    <form action="/dashboard/tvshows/{{ $tvshow->id }}" method="post" class="d-inline">
-                      @csrf
-                      @method('delete')
-                      <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+
+                    <form action="/dashboard/tvshows/{{ $tvshow->id }}" method="post" class="btn-custom bg-danger">
+                      <button type="submit" class=" extra-button">
+
+                        @csrf
+                        @method('delete')
+                        <i class="bi
+                        bi-trash3-fill"></i>
+                      </button>
                     </form>
+
+
                   </td>
                 </tr>
               @endforeach

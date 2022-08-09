@@ -43,6 +43,10 @@
 .img {
     width: 100%;
 }
+.img-logo-left {
+    display: hidden;
+    width: 200px;
+}
 
 .nav-links {
     @include flex(row, space-between);

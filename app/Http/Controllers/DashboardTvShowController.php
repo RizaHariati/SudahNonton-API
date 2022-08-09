@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\TvShow;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardTvShowController extends Controller
 {
 
     public function index(Request $request)
     {
-        if ($request->has('login')) {
-            return redirect('dashboard/home')->with('error', 'you are not authorized to edit tv show');
-        }
+
+
         $tvshows = TvShow::latest()->paginate(50);
         $alltvshows = true;
         if ($request->has('tvGenre')) {
@@ -34,8 +34,11 @@ class DashboardTvShowController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->has('login')) {
+            return redirect('dashboard/home')->with('error', 'you are not authorized to edit tv show');
+        }
         return view('dashboard.tvshows.create');
     }
 
@@ -61,6 +64,9 @@ class DashboardTvShowController extends Controller
 
     public function edit(TvShow $tvshow)
     {
+        if (!Auth::user()) {
+            return redirect('/auth/login')->with('error', 'you are not authorized to edit tv show');
+        }
         return view('dashboard.tvshows.edit', [
             'edit' => $tvshow,
             'genres' => Genre::all()
@@ -81,6 +87,9 @@ class DashboardTvShowController extends Controller
 
     public function destroy(TvShow $tvshow)
     {
+        if (!Auth::user()) {
+            return redirect('/auth/login')->with('error', 'you are not authorized to delete tv show');
+        }
         TvShow::destroy($tvshow->id);
         return redirect('/dashboard/tvshows')->with('success', 'Show successfully deleted');
     }

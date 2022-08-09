@@ -69,8 +69,7 @@
         <h4 class="slides-title">{{ $genre->name }}</h4>
         <div class="slides">
 
-          @foreach ($movies->where('genres', $genre->name)->slice(0, 15)->shuffle()
-    as $movie)
+          @foreach ($movies->where('genres', $genre->name)->slice(0, 15)->shuffle() as $movie)
             @include('sudahnonton.components.smallimage', ['result' => $movie])
             @if ($loop->iteration == 15)
               <a href="/movies?movieGenre={{ $genre->id }}" class="btn btn-dark nowrap"

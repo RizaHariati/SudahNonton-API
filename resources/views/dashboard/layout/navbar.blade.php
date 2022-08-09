@@ -2,7 +2,7 @@
   <div class="navbar">
 
     <div class='navbar-left'>
-      <a href="/" class="img-container">
+      <a href="/" class="navbar-img-container">
         <img src={{ asset('assets/images/TitleLogo.png') }} class="img" alt="title">
       </a>
       <div class="nav-links">
@@ -25,14 +25,12 @@
         <div class="logo-list">
           @auth
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="/auth/logout"> <i
-                  class="bi bi-box-arrow-in-right"></i>&emsp;
+              <a class="nav-link " aria-current="page" href="/auth/logout"> <i class="bi bi-box-arrow-in-right"></i>&emsp;
                 Logout</a>
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="/auth/login"> <i
-                  class="bi bi-box-arrow-in-right"></i>&emsp;
+              <a class="nav-link " aria-current="page" href="/auth/login"> <i class="bi bi-box-arrow-in-right"></i>&emsp;
                 Login</a>
             </li>
           @endauth

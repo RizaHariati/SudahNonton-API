@@ -50,8 +50,8 @@
       <p>{{ $tvshows->first()->genres }}</p>
       <div class="group-btn">
 
-        <a href="/tvshows/{{ $tvshows->first()->id }}?tv_id={{ $tvshows->first()->tv_id }}"
-          class="btn btn-primary">more info <i class="bi bi-info-circle-fill"></i></a>
+        <a href="/tvshows/{{ $tvshows->first()->id }}?tv_id={{ $tvshows->first()->tv_id }}" class="btn btn-primary">more
+          info <i class="bi bi-info-circle-fill"></i></a>
       </div>
     </div>
   </div>
@@ -65,10 +65,10 @@
         <h5 class="slides-title">{{ $genre->name }}</h4>
 
           <div class="slides">
-            @foreach ($tvshows->where('genres', $genre->name)->slice(0, 15)->slice(0, 15)->shuffle()
-    as $tvshow)
+
+            @foreach ($tvshows->where('genres', $genre->name)->slice(0, 10)->slice(0, 10)->shuffle() as $tvshow)
               @include('sudahnonton.components.smallimage', ['result' => $tvshow])
-              @if ($loop->iteration == 15)
+              @if ($loop->iteration == 10)
                 <a href="/tvshows?tvGenre={{ $genre->id }}" class="btn btn-dark nowrap"
                   style="margin-right:45px; margin-left:20px">see&nbsp;all..</a>
               @elseif ($loop->iteration == $tvshows->where('genres', $genre->name)->count())

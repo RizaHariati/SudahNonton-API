@@ -45,8 +45,7 @@
         <h4 class="slides-title">{{ $genre->name }}</h4>
         <div class="slides">
 
-          @foreach ($favorites->where('genres', $genre->name)->slice(0, 15)->shuffle()
-    as $favorite)
+          @foreach ($favorites->where('genres', $genre->name)->slice(0, 15)->shuffle() as $favorite)
             @include('sudahnonton.components.smallimage', [
                 'result' => $favorite,
             ])

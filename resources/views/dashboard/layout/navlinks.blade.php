@@ -3,7 +3,19 @@
     Home</a>
 </li>
 
-@auth
+
+<li class="nav-item">
+  <a class="nav-link text-light" href="/dashboard/movies">Movie List</a>
+</li>
+
+
+
+<li class="nav-item">
+  <a class="nav-link text-light " href="/dashboard/tvshows">Tv
+    Show List</a>
+</li>
+
+{{-- @auth
   <li class="nav-item">
     <a class="nav-link text-light" href="/dashboard/movies">Movie List</a>
   </li>
@@ -23,4 +35,4 @@
     <a class="nav-link text-light " href="/dashboard/tvshows?login=false">Tv
       Show List</a>
   </li>
-@endauth
+@endauth --}}

@@ -7,15 +7,23 @@
 
       <div class="dashboard-title">
         <h4>Movie List</h4>
-        <a href="/dashboard/movies/create" class="btn btn-primary"> Add Movie &emsp;<i class="bi bi-plus-circle-fill"></i>
-        </a>
+        @auth
+          <a href="/dashboard/movies/create" class="btn btn-primary"> Add Movie &emsp;<i class="bi bi-plus-circle-fill"></i>
+          </a>
+        @else
+          <a href="/dashboard/movies/create?login=false" class="btn btn-primary"> Add Movie &emsp;<i
+              class="bi bi-plus-circle-fill"></i>
+          </a>
+
+        @endauth
+
       </div>
 
       <form action="/dashboard/movies">
         @csrf
         <div class="input-group mb-4 mt-4">
-          <input type="text" class="form-control" placeholder="Search Movie..." aria-label="Search movie" name="search"
-            aria-describedby="button-addon2">
+          <input type="text" class="form-control" placeholder="Search Movie..." aria-label="Search movie"
+            name="search" aria-describedby="button-addon2">
           <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
         </div>
       </form>
