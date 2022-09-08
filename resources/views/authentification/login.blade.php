@@ -16,11 +16,12 @@
   <form action="/auth/login" method="post">
     @csrf
     <img class="mb-4" src="{{ asset('assets/images/logo.png') }}" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 fw-normal">Please login</h1>
+    <h1 class="h4 mb-3 fw-normal text-black-50">Please login</h1>
 
     <div class="form-floating">
-      <input autofocus type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"
-        value="{{ old('email') }}" placeholder="name@example.com">
+      <input autofocus type="email" id="email" name="email"
+        class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
+        placeholder="name@example.com">
       <label for="email">Email address</label>
       @error('email')
         <small class="text-danger">{{ $message }}</small>

@@ -1,7 +1,7 @@
 @extends('authentification.layout.main')
 
 @section('container')
-  <h1 class="h3 mb-3 fw-normal">You are not authorized to Register</h1>
+  <h1 class="h4 mb-3 fw-normal text-black">You are not authorized to Register</h1>
 
   <a href="/auth/login" class="text-info">back to Login</a>
 

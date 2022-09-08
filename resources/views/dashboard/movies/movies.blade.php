@@ -8,7 +8,8 @@
       <div class="dashboard-title">
         <h4>Movie List</h4>
         @auth
-          <a href="/dashboard/movies/create" class="btn btn-primary"> Add Movie &emsp;<i class="bi bi-plus-circle-fill"></i>
+          <a href="/dashboard/movies/create" class="btn btn-primary btn-sm"> Add Movie &emsp;<i
+              class="bi bi-plus-circle-fill"></i>
           </a>
         @else
           <a href="/dashboard/movies/create?login=false" class="btn btn-primary"> Add Movie &emsp;<i
@@ -35,15 +36,15 @@
           <a href="/dashboard/tvshows" class="btn btn-sm btn-outline-primary"> Back</a>
         </div>
       @else
-        <div class="table-responsive rounded-2 ">
+        <div class="table-responsive rounded-2 " style="max-width: 900px; margin-inline:auto">
           <table class="table table-sm table-dark table-striped table-hover align-left "
             style="font-weight: 300;word-wrap: break-word;">
             <thead>
-              <tr>
-                <th class="col-lg-1" scope="col">No.</th>
-                <th class="col-lg-7 col-md-5 col-4" scope="col" style="min-width: 250px">Title</th>
-                <th class="col-2" scope="col" style="word-wrap: break-word;min-width: 120px;max-width: 150px;">
-                  <form action="/dashboard/movies" id="myform" style="padding-right: 10px">
+              <tr class="table-body-custom">
+                <th class="col-md-1 d-none d-md-flex shadow-md h-full p-2 w-75 bg-dark" scope="col">No.</th>
+                <th class="col-6 col-md-7 text-wrap " scope="col">Title</th>
+                <th class="col-3 col-md-2" scope="col">
+                  <form action="/dashboard/movies" id="myform">
                     @csrf
                     <select class="form-select" name="movieGenre" onchange="submitForm()"
                       aria-label="Default select example" value={{ old('movieGenre') }} aria-placeholder="genres"
@@ -65,26 +66,26 @@
                     </script>
                   </form>
                 </th>
-                <th class="col-lg-2 col-sm-3 col-4" scope="col"
-                  style="word-wrap: break-word;min-width: 120px;max-width: 120px;">Actions</th>
+                <th class="btn-custom-container col-3 col-md-2" scope="col">Actions</th>
               </tr>
             </thead>
             <tbody style="font-size: 12px">
 
               @foreach ($movies as $movie)
-                <tr>
-                  <th class="col-lg-1" style="line-height: 32px" scope="row">{{ $loop->iteration }}</th>
-                  <td style="line-height: 32px">{{ $movie->title }}</td>
-                  <td style="line-height: 32px; padding-left: 10px">{{ $movie->genres }}</td>
-                  <td>
-                    <a href="/dashboard/movies/{{ $movie->id }}" class="btn btn-sm btn-success"
-                      style="font-size: 15px"><i class="bi bi-eye-fill"></i></a>
-                    <a href="/dashboard/movies/{{ $movie->id }}/edit" class="btn btn-sm btn-warning"><i
+                <tr class="table-body-custom ">
+                  <td class="col-md-1 d-none d-md-flex shadow-md h-full p-2 w-75 bg-dark" scope="row">
+                    {{ $loop->iteration }}</td>
+                  <td class="col-6 col-md-7 text-wrap" style="line-height: 32px">{{ $movie->title }}</td>
+                  <td class="col-3 col-md-2" style="line-height: 32px">{{ $movie->genres }}</td>
+                  <td class="btn-custom-container col-3 col-md-2">
+                    <a href="/dashboard/movies/{{ $movie->id }}" class="btn-custom bg-success"><i
+                        class="bi bi-eye-fill"></i></a>
+                    <a href="/dashboard/movies/{{ $movie->id }}/edit" class="btn-custom bg-warning"><i
                         class="bi bi-pencil-square"></i></a>
-                    <form action="/dashboard/movies/{{ $movie->id }}" method="post" class="d-inline">
+                    <form action="/dashboard/movies/{{ $movie->id }}" method="post" class="btn-custom bg-danger">
                       @csrf
                       @method('delete')
-                      <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                      <button type="submit" class="extra-button"><i class="bi bi-trash3-fill"></i></button>
                     </form>
                   </td>
                 </tr>

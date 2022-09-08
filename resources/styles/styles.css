@@ -39,6 +39,12 @@ p {
   --transition: all 0.3s ease-in;
 }
 
+.auth-container {
+  text-align: center;
+  background-color: var(--background);
+  padding: 20px;
+}
+
 .navbar-container {
   position: fixed;
   top: 0;

@@ -38,9 +38,9 @@
             style="font-weight: 300;word-wrap: break-word;">
             <thead>
               <tr class="table-body-custom">
-                <th class="col-md-12 d-none d-md-inline-block shadow-md " scope="col">No.</th>
-                <th class="col-6 " scope="col">Title</th>
-                <th class="col-3" scope="col">
+                <th class="col-md-1 d-none d-md-flex shadow-md h-full p-2 w-75 bg-dark" scope="col">No.</th>
+                <th class="col-6 col-md-7 text-wrap " scope="col">Title</th>
+                <th class="col-3 col-md-2" scope="col">
                   <form action="/dashboard/tvshows" id="myform">
                     @csrf
                     <select class="form-select " name="tvGenre" onchange="submitForm()"
@@ -63,7 +63,7 @@
                     </script>
                   </form>
                 </th>
-                <th class="col-3 col-md-2" scope="col">
+                <th class="btn-custom-container col-3 col-md-2" scope="col">
                   Actions</th>
               </tr>
             </thead>
@@ -72,11 +72,11 @@
 
               @foreach ($tvshows as $tvshow)
                 <tr class="table-body-custom">
-                  <th class="col-md-12 d-none d-md-inline-block shadow-md " scope="row">
+                  <td class="col-md-1 d-none d-md-flex shadow-md h-full p-2 w-75 bg-dark" scope="row">
                     {{ $loop->iteration }}
-                  </th>
+                  </td>
                   <td class="col-6 col-md-7 text-wrap" style="line-height: 32px">{{ $tvshow->name }}</td>
-                  <td class="col-3" style=" line-height: 32px">{{ $tvshow->genres }}</td>
+                  <td class="col-3 col-md-2" style=" line-height: 32px">{{ $tvshow->genres }}</td>
                   <td class="btn-custom-container col-3 col-md-2">
 
                     <a href="/dashboard/tvshows/{{ $tvshow->id }}" class="btn-custom bg-success"><i

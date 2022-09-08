@@ -5,7 +5,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="description"
+    content="I love watching movies and Tv shows.So using Laravel 8, I created this database website, to remind me of movies that I have watched. The design is based on Netflix's Website." />
+  <meta name="keywords" content="riza, hariati, rizahariati, azricoding, sudah, nonton, sudahnonton" />
+  <meta property="og:image" content="{{ asset('assets/SEO/main.png') }}" />
+  <meta name="google-site-verification" content="ToQHHEWK48t95I0a2-VCdlbdgY7joocmPhmLPMS2KUw" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href={{ 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' }}>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,6 +18,8 @@
   <link rel="stylesheet" href={{ asset('/styles/styles.css') }}>
 
   <title>SudahNonton</title>
+
+
 </head>
 
 <body>

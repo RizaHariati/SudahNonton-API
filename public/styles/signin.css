@@ -11,11 +11,23 @@ body {
   background-color: #f5f5f5;
 }
 
+.auth-container {
+    text-align: center;
+    background-color: var(--background);
+    padding: 20px;
+}
+.auth-content {
+    width: 250px;
+    height: 400px;
+    background-color: var(--text);
+}
+
 .form-signin {
   width: 100%;
-  max-width: 330px;
+  max-width:330px;
   padding: 15px;
   margin: auto;
+  background-color: white;
 }
 
 .form-signin .checkbox {
